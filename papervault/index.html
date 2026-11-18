@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PaperVault — find and explore previous-year question papers." />
+  <title>PaperVault — Your exam prep, organised</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="announcement"><span class="announcement-dot"></span> Your next exam prep starts here <span class="announcement-sep">·</span> Explore the paper library</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="PaperVault home"><span class="brand-mark">P</span><span>paper<span class="brand-light">vault</span><small>THE STUDENT PAPER LIBRARY</small></span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#browse">Browse papers</a><a href="#how">How it works</a><a href="#about">About</a>
+    </nav>
+    <div class="header-actions"><button class="text-button" id="loginBtn">Log in</button><a class="button button-dark button-small" id="contributeTop" href="#upload">Contribute a paper <span>↗</span></a></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-line"></span> STUDY SMARTER. NOT LONGER.</div>
+        <h1>Past papers.<br><em>Future</em> success.</h1>
+        <p class="hero-copy">Your all-in-one library for previous-year question papers. Find what you need, practise with purpose, and walk into every exam prepared.</p>
+        <form class="search-box" id="heroSearch">
+          <span class="search-icon">⌕</span><input id="heroQuery" type="search" placeholder="Search subject, course, year..." aria-label="Search papers" />
+          <button type="submit">Search papers <span>→</span></button>
+        </form>
+        <div class="hero-meta"><div class="avatar-stack"><span>AK</span><span>RS</span><span>PM</span><span>+</span></div><span><strong>Built for students,</strong> by students</span><span class="meta-divider"></span><span>✦ Free to explore</span></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of organised exam papers">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="paper-back"></div><div class="paper-main">
+          <div class="paper-top"><span class="mini-logo">PV.</span><span class="paper-label">QUESTION PAPER</span></div>
+          <div class="paper-rule"></div><div class="paper-university">UNIVERSITY EXAMINATION</div>
+          <div class="paper-subject">Data Structures<br>& Algorithms</div>
+          <div class="paper-details"><span>SEMESTER <b>03</b></span><span>YEAR <b>2025</b></span></div>
+          <div class="paper-lines"><i></i><i></i><i></i><i></i></div>
+          <div class="paper-stamp">PAST<br>PAPER</div>
+        </div>
+        <div class="floating-note note-top"><span class="note-icon">✓</span><span><b>Ready to practise?</b><small>Find your next paper</small></span></div>
+        <div class="floating-note note-bottom"><span class="pdf-icon">PDF</span><span><b>Easy access</b><small>Browse by semester</small></span></div>
+        <div class="art-spark spark-one">✳</div><div class="art-spark spark-two">✦</div>
+      </div>
+      <div class="hero-bottom"><span>01 / THE PAPER LIBRARY</span><span>SCROLL TO EXPLORE ↓</span></div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong>01</strong><span>Find your subject</span></div><div><strong>02</strong><span>Choose your semester</span></div><div><strong>03</strong><span>Start practising</span></div><div class="stats-note">A little practice goes<br><em>a long way.</em></div>
+    </section>
+
+    <section class="section browse-section" id="browse">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> THE LIBRARY</div><h2>Find your <em>paper.</em></h2><p>Everything you need to prepare, all in one place.</p></div><a href="#paperGrid" class="subtle-link">Explore library <span>↗</span></a></div>
+      <div class="filter-panel">
+        <div class="filter-search"><span>⌕</span><input id="filterQuery" type="search" placeholder="Search by subject or paper name..." /></div>
+        <label>Exam type<select id="examFilter"><option value="">All exams</option><option>Mid Semester</option><option>End Semester</option></select></label>
+        <label>Branch<select id="branchFilter"><option value="">All branches</option><option>CSE</option><option>IT</option><option>ECE</option></select></label>
+        <label>Semester<select id="semesterFilter"><option value="">All semesters</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
+        <button class="reset-button" id="resetFilters">Reset ↺</button>
+      </div>
+      <div class="results-row"><span id="resultCount">Showing 6 papers</span><label>Sort by <select id="sortFilter"><option value="recent">Most recent</option><option value="title">Paper name</option></select></label></div>
+      <div class="paper-grid" id="paperGrid"></div>
+      <div class="empty-state" id="emptyState" hidden><div>⌕</div><h3>No papers found</h3><p>Try changing your search or filters.</p><button class="button button-outline" id="emptyReset">Clear filters</button></div>
+      <div class="library-footer"><span id="libNote"></span><button class="button button-outline" id="loadMore">Load more papers <span>↓</span></button></div>
+    </section>
+
+    <section class="feature-band" id="how">
+      <div class="feature-left"><div class="eyebrow eyebrow-light"><span class="eyebrow-line"></span> YOUR STUDY COMPANION</div><h2>Less searching.<br><em>More solving.</em></h2><p>Good preparation begins with knowing what to expect. Use previous papers to understand question patterns, practise time management, and identify topics to revisit.</p><a href="#browse" class="button button-white">Explore the library <span>→</span></a></div>
+      <div class="feature-right"><div class="feature-card"><span class="feature-number">01</span><div class="feature-symbol">⌕</div><h3>Find it fast</h3><p>Browse by course, branch, semester, subject, or year.</p></div><div class="feature-card"><span class="feature-number">02</span><div class="feature-symbol">▤</div><h3>Know the pattern</h3><p>Use past papers to get familiar with exam formats.</p></div><div class="feature-card"><span class="feature-number">03</span><div class="feature-symbol">↗</div><h3>Share the help</h3><p>Contribute papers and make studying easier for others.</p></div></div>
+    </section>
+
+    <section class="section upload-section" id="upload">
+      <div class="upload-illustration"><div class="upload-folder"><span>＋</span><i></i><i></i><i></i></div><div class="upload-spark">✦</div></div>
+      <div class="upload-copy"><div class="eyebrow"><span class="eyebrow-line"></span> GIVE BACK TO THE COMMUNITY</div><h2>Have a paper?<br><em>Share the knowledge.</em></h2><p>Help another student prepare by adding a question paper to the library. Faculty can upload papers after logging in. Each new paper waits for admin verification before it appears in the library.</p><button class="button button-dark" id="openUpload">Contribute a paper <span>↗</span></button></div>
+    </section>
+
+    <section class="quote-section" id="about"><div class="quote-mark">“</div><blockquote>The beautiful thing about learning is that nobody can take it away from you.</blockquote><span>— B. B. KING</span></section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-main"><a class="brand brand-footer" href="#"><span class="brand-mark">P</span><span>paper<span class="brand-light">vault</span><small>THE STUDENT PAPER LIBRARY</small></span></a><p>Making exam preparation a little more organised, one paper at a time.</p><div class="footer-links"><a href="#browse">Browse papers</a><a href="#how">How it works</a><a href="#upload">Contribute</a></div></div><div class="footer-bottom"><span>© 2026 PaperVault. Student project demo.</span><span>Made for curious minds <b>✳</b></span></div></footer>
+
+  <div class="modal-backdrop" id="paperModal" hidden><div class="modal"><button class="modal-close" data-close aria-label="Close">×</button><div class="modal-kicker">PAPERVAULT / PAPER DETAILS</div><div id="modalContent"></div></div></div>
+  <div class="modal-backdrop" id="loginModal" hidden><div class="modal"><button class="modal-close" data-close aria-label="Close">×</button><div class="modal-kicker">PAPERVAULT / LOG IN</div><h2>Welcome <em>back.</em></h2><p class="modal-intro">Choose your role and enter your password.</p><form id="loginForm" class="upload-form"><div class="role-tabs" id="roleTabs"><button type="button" data-role="Student" class="on">Student</button><button type="button" data-role="Faculty">Faculty</button><button type="button" data-role="Admin">Admin</button></div><label>User ID<input id="loginId" readonly></label><label>Password<input id="loginPw" type="password" required autocomplete="current-password"></label><button class="button button-dark form-submit" type="submit">Log in</button><p class="form-message" id="loginMsg" role="status"></p><p class="login-hint">Demo accounts use the password 1234.</p></form></div></div>
+  <div class="modal-backdrop" id="portalModal" hidden><div class="modal portal"><button class="modal-close" data-close aria-label="Close">×</button><div class="modal-kicker" id="portalKicker"></div><div class="portal-body"><nav class="portal-nav" id="portalNav"></nav><div class="portal-main" id="portalMain"></div></div></div></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
